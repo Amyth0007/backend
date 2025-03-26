@@ -7,8 +7,8 @@ import authRoutes from './routes/auth.routes.js';
 dotenv.config();
 
 const app = express();
-app.use(cors({
-    origin: 'http://localhost:3000', // Frontend URL
+app.use(cors ({
+    origin: '*', // Frontend URL
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true // Allow cookies or credentials if needed
   }));
