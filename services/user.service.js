@@ -16,7 +16,7 @@ export const createUser = async (userData) => {
 
 };
 export const loginUser = async (userData) => {
-    const { email, password } = userData;
+    const { email, password } = userData; // destructring
     if (!email || !password) {
         throw new Error('All fields are required');
     }
@@ -24,11 +24,11 @@ export const loginUser = async (userData) => {
     if (!user) {
         throw new Error('Invalid username or email');
     }
-    const isMatch = await bcrypt.compare(password, user.password);
+    const isMatch = await bcrypt.compare(password, user.password); 
     if (!isMatch) {
         throw new Error('Invalid password');
     }
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '2m' });
     return { user, token };
 }
 

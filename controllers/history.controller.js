@@ -22,7 +22,7 @@ export const testing = async (req, res) => {
 export const fetchUserHistory = async (req, res) => {
   try {
     const history = await getUserHistory(req.userId);
-    res.json(history);
+    res.status(200).json(history);
   } catch (err) {
     res.status(500).json({ error: 'Error fetching history', details: err.message });
   }
@@ -30,7 +30,7 @@ export const fetchUserHistory = async (req, res) => {
 export const fetchUserData = async (req, res) => {
   try {
     const history = await getUserData(req.userId);
-    res.json(history);
+    res.status(200).json(history);
   } catch (err) {
     res.status(500).json({ error: 'Error fetching history', details: err.message });
   }
